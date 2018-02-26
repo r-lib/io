@@ -4,6 +4,7 @@ Title: File input/output
 Description: What the package does (one paragraph).
 Authors@R: c(
     person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre")),
+    person("Kevin", "Ushey", , "kevin@rstudio.com", role = c("aut")),
     person("RStudio", role = "cph")
   )
 License: GPL-3
@@ -12,3 +13,4 @@ LazyData: true
 ByteCompile: true
 URL: https://github.com/r-lib/io
 BugReports: https://github.com/r-lib/io/issues
+RoxygenNote: 6.0.1
