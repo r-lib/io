@@ -37,11 +37,11 @@ public:
 
   ~MemoryMappedConnection()
   {
-    if (handle_ != INVALID_HANDLE_VALUE)
-      ::CloseHandle(handle_);
-
     if (map_ != NULL)
       ::UnmapViewOfFile(map_);
+
+    if (handle_ != NULL)
+      ::CloseHandle(handle_);
   }
 
   bool open()
