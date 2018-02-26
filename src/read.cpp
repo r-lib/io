@@ -36,9 +36,9 @@ extern "C" SEXP io_read_lines(SEXP absolutePathSEXP)
     return R_NilValue;
   }
 
-  int n = lines.size();
+  R_xlen_t n = (R_xlen_t) lines.size();
   SEXP resultSEXP = PROTECT(Rf_allocVector(STRSXP, n));
-  for (int i = 0; i < n; ++i)
+  for (R_xlen_t i = 0; i < n; ++i)
     SET_STRING_ELT(resultSEXP, i, Rf_mkCharLen(lines[i].c_str(), lines[i].size()));
   UNPROTECT(1);
   return resultSEXP;
@@ -74,9 +74,9 @@ extern "C" SEXP io_read_lines_bytes(SEXP absolutePathSEXP)
     return R_NilValue;
   }
 
-  int n = lines.size();
+  R_xlen_t n = (R_xlen_t) lines.size();
   SEXP resultSEXP = PROTECT(Rf_allocVector(VECSXP, n));
-  for (int i = 0; i < n; ++i)
+  for (R_xlen_t i = 0; i < n; ++i)
   {
     SEXP rawSEXP = Rf_allocVector(RAWSXP, lines[i].size());
     std::memcpy(RAW(rawSEXP), lines[i].c_str(), lines[i].size());

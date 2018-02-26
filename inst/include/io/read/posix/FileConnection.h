@@ -32,7 +32,7 @@ public:
     return fd_ != -1;
   }
 
-  bool size(int* pSize)
+  bool size(std::size_t* pSize)
   {
     struct stat info;
     if (::fstat(fd_, &info) == -1)

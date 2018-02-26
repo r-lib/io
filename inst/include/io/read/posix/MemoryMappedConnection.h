@@ -12,7 +12,7 @@ class MemoryMappedConnection
 {
 public:
 
-  MemoryMappedConnection(int fd, int size)
+  MemoryMappedConnection(int fd, std::size_t size)
     : size_(size)
   {
 #ifdef MAP_POPULATE
@@ -44,7 +44,7 @@ public:
 
 private:
   char* map_;
-  int size_;
+  std::size_t size_;
 };
 
 } // namespace detail
