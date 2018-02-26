@@ -1,12 +1,22 @@
 #ifndef IO_READ_WINDOWS_MEMORY_MAPPED_CONNECTION_H
 #define IO_READ_WINDOWS_MEMORY_MAPPED_CONNECTION_H
 
-#undef Realloc
-#undef Free
+#ifdef Realloc
+# undef Realloc
+#endif
 
+#ifdef Free
+# undef Free
+#endif
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-#include <io/core/core.h>
+#ifdef ERROR
+# undef ERROR
+#endif
+
+#include <cstdio>
 
 namespace io {
 namespace detail {

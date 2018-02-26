@@ -1,9 +1,22 @@
 #ifndef IO_READ_WINDOWS_FILE_CONNECTION_H
 #define IO_READ_WINDOWS_FILE_CONNECTION_H
 
-#undef Realloc
-#undef Free
+#ifdef Realloc
+# undef Realloc
+#endif
+
+#ifdef Free
+# undef Free
+#endif
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+
+#ifdef ERROR
+# undef ERROR
+#endif
+
+#include <cstdio>
 
 namespace io {
 namespace detail {
@@ -29,10 +42,13 @@ public:
     return handle_ != INVALID_HANDLE_VALUE;
   }
 
-  bool size(int* pSize)
+  bool size(std::size_t* pSize)
   {
-    *pSize = ::GetFileSize(handle_, NULL);
-    return true;
+    LARGE_INTEGER size;
+    bool status = ::GetFileSizeEx(handle_, &size);
+    if (status)
+      *pSize = size.QuadPart;
+    return status;
   }
 
   operator FileDescriptor() const
