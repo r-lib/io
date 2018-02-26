@@ -6,11 +6,11 @@
 #include <algorithm>
 
 #ifndef _WIN32
-# include <io/read/posix/FileConnection.h>
-# include <io/read/posix/MemoryMappedConnection.h>
+# include "posix/FileConnection.h"
+# include "posix/MemoryMappedConnection.h"
 #else
-# include <io/read/windows/FileConnection.h>
-# include <io/read/windows/MemoryMappedConnection.h>
+# include "windows/FileConnection.h"
+# include "windows/MemoryMappedConnection.h"
 #endif
 
 namespace io {

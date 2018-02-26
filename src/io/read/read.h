@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-#include <io/read/MemoryMappedReader.h>
+#include "MemoryMappedReader.h"
 
 namespace io {
 
