@@ -1,20 +1,7 @@
 #ifndef IO_READ_WINDOWS_FILE_CONNECTION_H
 #define IO_READ_WINDOWS_FILE_CONNECTION_H
 
-#ifdef Realloc
-# undef Realloc
-#endif
-
-#ifdef Free
-# undef Free
-#endif
-
-#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-
-#ifdef ERROR
-# undef ERROR
-#endif
 
 #include <cstdio>
 
